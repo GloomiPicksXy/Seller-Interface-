@@ -15,21 +15,24 @@
     <section class="upload-container">
         <div class="upload-box">
             <label>Profile Picture</label>
-            <input type="file" id="profile-pic">
+            <button class="upload-btn" onclick="document.getElementById('profile-pic').click()">Submit Picture</button>
+            <input type="file" id="profile-pic" accept="image/*" hidden>
             <div class="preview" id="profile-preview"></div>
             <textarea placeholder="Edit text for Account Profile"></textarea>
         </div>
 
         <div class="upload-box">
             <label>Collection Picture</label>
-            <input type="file" id="collection-pic">
+            <button class="upload-btn" onclick="document.getElementById('collection-pic').click()">Submit Picture</button>
+            <input type="file" id="collection-pic" accept="image/*" hidden>
             <div class="preview" id="collection-preview"></div>
             <textarea placeholder="Edit text for Collection"></textarea>
         </div>
 
         <div class="upload-box">
             <label>Welcome Message</label>
-            <input type="file" id="welcome-msg-pic">
+            <button class="upload-btn" onclick="document.getElementById('welcome-msg-pic').click()">Submit Picture</button>
+            <input type="file" id="welcome-msg-pic" accept="image/*" hidden>
             <div class="preview" id="welcome-preview"></div>
             <textarea placeholder="Edit text for Welcome Message"></textarea>
         </div>
