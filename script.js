@@ -1,6 +1,10 @@
 document.getElementById('sellerForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
+    // Hide the form
+    document.getElementById('sellerForm').classList.add('hidden');
+
+    // Get form values
     const storeTitle = document.getElementById('storeTitle').value;
     const profileImage = document.getElementById('profileImage').files[0];
     const accLevel = document.getElementById('accLevel').value;
@@ -10,23 +14,16 @@ document.getElementById('sellerForm').addEventListener('submit', function(event)
     const welcomeMessage = document.getElementById('welcomeMessage').value;
     const payments = Array.from(document.querySelectorAll('input[name="payment"]:checked')).map(el => el.value).join(', ');
 
-    const previewStoreTitle = document.getElementById('previewStoreTitle');
-    const previewProfileImage = document.getElementById('previewProfileImage');
-    const previewAccLevel = document.getElementById('previewAccLevel');
-    const previewAccId = document.getElementById('previewAccId');
-    const previewCollectionImage = document.getElementById('previewCollectionImage');
-    const previewCollectionInfo = document.getElementById('previewCollectionInfo');
-    const previewWelcomeMessage = document.getElementById('previewWelcomeMessage');
-    const previewPayments = document.getElementById('previewPayments');
+    // Update preview
+    document.getElementById('previewStoreTitle').textContent = storeTitle;
+    document.getElementById('previewProfileImage').src = URL.createObjectURL(profileImage);
+    document.getElementById('previewAccLevel').textContent = accLevel;
+    document.getElementById('previewAccId').textContent = accId;
+    document.getElementById('previewCollectionImage').src = URL.createObjectURL(collectionImage);
+    document.getElementById('previewCollectionInfo').textContent = collectionInfo;
+    document.getElementById('previewWelcomeMessage').textContent = welcomeMessage;
+    document.getElementById('previewPayments').textContent = payments;
 
-    previewStoreTitle.textContent = storeTitle;
-    previewProfileImage.src = URL.createObjectURL(profileImage);
-    previewAccLevel.textContent = accLevel;
-    previewAccId.textContent = accId;
-    previewCollectionImage.src = URL.createObjectURL(collectionImage);
-    previewCollectionInfo.textContent = collectionInfo;
-    previewWelcomeMessage.textContent = welcomeMessage;
-    previewPayments.textContent = payments;
-
+    // Show the preview
     document.getElementById('preview').classList.remove('hidden');
 });
