@@ -10,47 +10,80 @@
     <div class="container">
         <h1>ACC Seller UI Editor</h1>
         <form id="sellerForm">
+            <!-- Store Title -->
             <div class="form-group">
                 <label for="storeTitle">Store Title</label>
                 <input type="text" id="storeTitle" placeholder="Enter Store Title" required>
             </div>
+
+            <!-- Profile Section -->
             <div class="form-group">
                 <label for="profileImage">In-Game Profile Image</label>
                 <input type="file" id="profileImage" accept="image/*" required>
                 <input type="text" id="accLevel" placeholder="ACC LVL" required>
                 <input type="text" id="accId" placeholder="ACC ID" required>
             </div>
+
+            <!-- Collection Section -->
             <div class="form-group">
                 <label for="collectionImage">Collection Image</label>
                 <input type="file" id="collectionImage" accept="image/*" required>
                 <input type="text" id="collectionInfo" placeholder="Collection Info" required>
             </div>
+
+            <!-- Welcome Message -->
             <div class="form-group">
                 <label for="welcomeMessage">Welcome/Inactivity Message</label>
                 <input type="text" id="welcomeMessage" placeholder="Inactive: 200 days" required>
             </div>
+
+            <!-- Payment Methods -->
             <div class="form-group">
-                <label>Mode of Payment</label>
-                <label><input type="checkbox" name="payment" value="Paymaya"> Paymaya</label>
-                <label><input type="checkbox" name="payment" value="Gcash"> Gcash</label>
-                <label><input type="checkbox" name="payment" value="Binance"> Binance</label>
+                <label>Payment Method:</label>
+                <div class="payment-methods">
+                    <label><input type="checkbox" name="payment" value="Gcash"> Gcash</label>
+                    <label><input type="checkbox" name="payment" value="Binance"> Binance</label>
+                    <label><input type="checkbox" name="payment" value="Paypal"> Paypal</label>
+                </div>
             </div>
-            <div class="form-group">
-                <p>No refund policy once login</p>
-                <p>No Fake Receipt</p>
+
+            <!-- Reminder -->
+            <div class="form-group reminder">
+                <label>PLEASE READ:</label>
+                <p>NO REFUND ONCE LOGIN</p>
+                <p>FAKE RECEIPT = BLOCK</p>
             </div>
+
+            <!-- Submit Button -->
             <button type="submit">Submit</button>
         </form>
+
+        <!-- Preview Section -->
         <div id="preview" class="preview-container hidden">
-            <h2 id="previewStoreTitle" class="store-title"></h2>
+            <h2 id="previewStoreTitle" class="store-title neon-text"></h2>
             <div class="preview-content">
-                <img id="previewProfileImage" src="#" alt="Profile Image">
+                <div class="image-container neon-border">
+                    <img id="previewProfileImage" src="#" alt="Profile Image">
+                </div>
                 <p>ACC LVL: <span id="previewAccLevel"></span></p>
                 <p>ACC ID: <span id="previewAccId"></span></p>
-                <img id="previewCollectionImage" src="#" alt="Collection Image">
+
+                <div class="image-container neon-border">
+                    <img id="previewCollectionImage" src="#" alt="Collection Image">
+                </div>
                 <p>Collection Info: <span id="previewCollectionInfo"></span></p>
                 <p>Welcome Message: <span id="previewWelcomeMessage"></span></p>
-                <p>Accepted Payments: <span id="previewPayments"></span></p>
+
+                <div class="payment-methods-preview">
+                    <label>Payment Method:</label>
+                    <p id="previewPayments"></p>
+                </div>
+
+                <div class="reminder-preview">
+                    <label>PLEASE READ:</label>
+                    <p>NO REFUND ONCE LOGIN</p>
+                    <p>FAKE RECEIPT = BLOCK</p>
+                </div>
             </div>
             <div class="credit">
                 <p>Made by @sephicity</p>
