@@ -1,29 +1,39 @@
-document.getElementById('sellerForm').addEventListener('submit', function(event) {
-    event.preventDefault();
+document.addEventListener("DOMContentLoaded", () => {
+    const submitBtn = document.getElementById("submit-btn");
+    const previewSection = document.getElementById("preview-section");
+    const previewContent = document.getElementById("preview-content");
 
-    // Hide the form
-    document.getElementById('sellerForm').classList.add('hidden');
+    // Image preview function
+    function handleFileUpload(input, previewDiv) {
+        input.addEventListener("change", function () {
+            if (this.files && this.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    previewDiv.innerHTML = `<img src="${e.target.result}" style="width: 100px; height: 100px; border:2px solid cyan;">`;
+                };
+                reader.readAsDataURL(this.files[0]);
+            }
+        });
+    }
 
-    // Get form values
-    const storeTitle = document.getElementById('storeTitle').value;
-    const profileImage = document.getElementById('profileImage').files[0];
-    const accLevel = document.getElementById('accLevel').value;
-    const accId = document.getElementById('accId').value;
-    const collectionImage = document.getElementById('collectionImage').files[0];
-    const collectionInfo = document.getElementById('collectionInfo').value;
-    const welcomeMessage = document.getElementById('welcomeMessage').value;
-    const payments = Array.from(document.querySelectorAll('input[name="payment"]:checked')).map(el => el.value).join(', ');
+    handleFileUpload(document.getElementById("profile-pic"), document.getElementById("profile-preview"));
+    handleFileUpload(document.getElementById("collection-pic"), document.getElementById("collection-preview"));
+    handleFileUpload(document.getElementById("welcome-msg-pic"), document.getElementById("welcome-preview"));
 
-    // Update preview
-    document.getElementById('previewStoreTitle').textContent = storeTitle;
-    document.getElementById('previewProfileImage').src = URL.createObjectURL(profileImage);
-    document.getElementById('previewAccLevel').textContent = accLevel;
-    document.getElementById('previewAccId').textContent = accId;
-    document.getElementById('previewCollectionImage').src = URL.createObjectURL(collectionImage);
-    document.getElementById('previewCollectionInfo').textContent = collectionInfo;
-    document.getElementById('previewWelcomeMessage').textContent = welcomeMessage;
-    document.getElementById('previewPayments').textContent = payments;
+    // Submit button functionality
+    submitBtn.addEventListener("click", () => {
+        previewContent.innerHTML = "<h2>Preview</h2>";
 
-    // Show the preview
-    document.getElementById('preview').classList.remove('hidden');
+        document.querySelectorAll(".upload-box textarea").forEach(textarea => {
+            previewContent.innerHTML += `<p>${textarea.value}</p>`;
+        });
+
+        document.querySelectorAll(".payment-options input").forEach(input => {
+            if (input.value.trim() !== "") {
+                previewContent.innerHTML += `<p>Payment Method: ${input.value}</p>`;
+            }
+        });
+
+        previewSection.classList.remove("hidden");
+    });
 });
