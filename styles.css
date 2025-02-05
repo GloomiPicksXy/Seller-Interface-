@@ -49,12 +49,18 @@ header {
     margin-bottom: 10px;
 }
 
-.upload-box input {
-    width: 100%;
-    padding: 5px;
-    border-radius: 5px;
-    background: #222;
-    color: white;
+.upload-btn {
+    background: cyan;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.upload-btn:hover {
+    background: #00cccc;
 }
 
 .upload-box .preview {
