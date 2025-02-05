@@ -3,93 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ACC Seller</title>
+    <title>Sephicity</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>ACC Seller UI Editor</h1>
-        <form id="sellerForm">
-            <!-- Store Title -->
-            <div class="form-group">
-                <label for="storeTitle">Store Title</label>
-                <input type="text" id="storeTitle" placeholder="Enter Store Title" required>
-            </div>
+    <header>
+        <h1 id="main-title" contenteditable="true">Your Custom Title</h1>
+        <span class="fixed-title">Sephicity</span>
+    </header>
 
-            <!-- Profile Section -->
-            <div class="form-group">
-                <label for="profileImage">In-Game Profile Image</label>
-                <input type="file" id="profileImage" accept="image/*" required>
-                <input type="text" id="accLevel" placeholder="ACC LVL" required>
-                <input type="text" id="accId" placeholder="ACC ID" required>
-            </div>
-
-            <!-- Collection Section -->
-            <div class="form-group">
-                <label for="collectionImage">Collection Image</label>
-                <input type="file" id="collectionImage" accept="image/*" required>
-                <input type="text" id="collectionInfo" placeholder="Collection Info" required>
-            </div>
-
-            <!-- Welcome Message -->
-            <div class="form-group">
-                <label for="welcomeMessage">Welcome/Inactivity Message</label>
-                <input type="text" id="welcomeMessage" placeholder="Inactive: 200 days" required>
-            </div>
-
-            <!-- Payment Methods -->
-            <div class="form-group">
-                <label>Payment Method:</label>
-                <div class="payment-methods">
-                    <label><input type="checkbox" name="payment" value="Gcash"> Gcash</label>
-                    <label><input type="checkbox" name="payment" value="Binance"> Binance</label>
-                    <label><input type="checkbox" name="payment" value="Paypal"> Paypal</label>
-                </div>
-            </div>
-
-            <!-- Reminder -->
-            <div class="form-group reminder">
-                <label>PLEASE READ:</label>
-                <p>NO REFUND ONCE LOGIN</p>
-                <p>FAKE RECEIPT = BLOCK</p>
-            </div>
-
-            <!-- Submit Button -->
-            <button type="submit">Submit</button>
-        </form>
-
-        <!-- Preview Section -->
-        <div id="preview" class="preview-container hidden">
-            <h2 id="previewStoreTitle" class="store-title neon-text"></h2>
-            <div class="preview-content">
-                <div class="image-container neon-border">
-                    <img id="previewProfileImage" src="#" alt="Profile Image">
-                </div>
-                <p>ACC LVL: <span id="previewAccLevel"></span></p>
-                <p>ACC ID: <span id="previewAccId"></span></p>
-
-                <div class="image-container neon-border">
-                    <img id="previewCollectionImage" src="#" alt="Collection Image">
-                </div>
-                <p>Collection Info: <span id="previewCollectionInfo"></span></p>
-                <p>Welcome Message: <span id="previewWelcomeMessage"></span></p>
-
-                <div class="payment-methods-preview">
-                    <label>Payment Method:</label>
-                    <p id="previewPayments"></p>
-                </div>
-
-                <div class="reminder-preview">
-                    <label>PLEASE READ:</label>
-                    <p>NO REFUND ONCE LOGIN</p>
-                    <p>FAKE RECEIPT = BLOCK</p>
-                </div>
-            </div>
-            <div class="credit">
-                <p>Made by @sephicity</p>
-            </div>
+    <section class="upload-container">
+        <div class="upload-box">
+            <label>Profile Picture</label>
+            <input type="file" id="profile-pic">
+            <div class="preview" id="profile-preview"></div>
+            <textarea placeholder="Edit text for Account Profile"></textarea>
         </div>
-    </div>
+
+        <div class="upload-box">
+            <label>Collection Picture</label>
+            <input type="file" id="collection-pic">
+            <div class="preview" id="collection-preview"></div>
+            <textarea placeholder="Edit text for Collection"></textarea>
+        </div>
+
+        <div class="upload-box">
+            <label>Welcome Message</label>
+            <input type="file" id="welcome-msg-pic">
+            <div class="preview" id="welcome-preview"></div>
+            <textarea placeholder="Edit text for Welcome Message"></textarea>
+        </div>
+    </section>
+
+    <section class="payment-container">
+        <h2>Edit Payment Methods</h2>
+        <div class="payment-options">
+            <input type="text" placeholder="Enter Payment Method (e.g., GCash, PayPal)">
+            <input type="text" placeholder="Enter Payment Method (e.g., Binance, PayMaya)">
+        </div>
+    </section>
+
+    <section class="reminders">
+        <h2>Reminders</h2>
+        <p>⚠ No Refund Policy</p>
+        <p>⚠ Fake Receipt = Block & Post</p>
+    </section>
+
+    <button id="submit-btn">Submit</button>
+
+    <section id="preview-section" class="hidden">
+        <h2>Preview</h2>
+        <div id="preview-content"></div>
+    </section>
+
     <script src="script.js"></script>
 </body>
 </html>
