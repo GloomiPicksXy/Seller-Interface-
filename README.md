@@ -1,2 +1,2 @@
-# Seller-Interface-
-Advance UI
+# Seller UI
+Quick design and sh
